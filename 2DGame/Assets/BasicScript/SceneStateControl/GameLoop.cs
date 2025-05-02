@@ -1,0 +1,32 @@
+//Author : EthanLiu
+//CreateTime : 2025-02-12-12:34:19
+//Version : 1.0
+//UnityVersion : 2021.3.16f1c1
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+public class GameLoop : MonoBehaviour
+{
+    [SerializeField]
+    private SceneStateControl sceneStateControl = new SceneStateControl();
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+        UnityEngine.Random.InitState((int)DateTime.Now.Ticks);
+        
+    }
+
+    private void Start()
+    {
+        sceneStateControl.SetState(new SceneStartState(sceneStateControl),"StartScene");
+    }
+
+    private void Update()
+    {
+        sceneStateControl.StateUpdate();
+    }
+}
