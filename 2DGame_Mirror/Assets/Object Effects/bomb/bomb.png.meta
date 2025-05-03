@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4f6a1fd082df9a449aa041397ef9361c
+guid: e12891cb341372543bbe2dd326f1da87
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -47,8 +47,8 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
-  spriteBorder: {x: 10, y: 10, z: 10, w: 10}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -105,85 +105,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walk_0
+      name: bomb_0
       rect:
         serializedVersion: 2
-        x: 28
-        y: 15
-        width: 68
-        height: 162
+        x: 0
+        y: 0
+        width: 365.7143
+        height: 320
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 258329eee03d04a49b541e6146ae1651
-      internalID: 1585943917
+      spriteID: e86d0b2e8b198084babdf3ca510d4eea
+      internalID: -1181625492
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_1
+      name: bomb_1
       rect:
         serializedVersion: 2
-        x: 111
-        y: 17
-        width: 68
-        height: 160
+        x: 358
+        y: 0
+        width: 366
+        height: 320
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 723d6557cc6e1f447b7c4acdd0671ca9
-      internalID: 2022988097
+      spriteID: a7399ca7972011a4183c5c7404cc4479
+      internalID: -619728842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_2
+      name: bomb_2
       rect:
         serializedVersion: 2
-        x: 186
-        y: 16
-        width: 68
-        height: 161
+        x: 771
+        y: 0
+        width: 366
+        height: 320
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de8fe7f0a21d5b24bb57fd07764c116f
-      internalID: -256645333
+      spriteID: 6e864cba9b1800b49b5cd5bf7cf41606
+      internalID: -1316683987
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_3
+      name: bomb_3
       rect:
         serializedVersion: 2
-        x: 270
-        y: 20
-        width: 68
-        height: 157
+        x: 1231
+        y: 0
+        width: 366
+        height: 320
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cd5f0990e796a84f917bf32605f3baa
-      internalID: -2054668072
+      spriteID: a14f156b64461f144b908289c54b653a
+      internalID: -1587703124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bomb_4
+      rect:
+        serializedVersion: 2
+        x: 1658
+        y: 0
+        width: 366
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abb726b06617bfe40a8671850956770a
+      internalID: -489483580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bomb_5
+      rect:
+        serializedVersion: 2
+        x: 2103
+        y: 0
+        width: 366
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a014fb873bb9d9b4da898cdec935510a
+      internalID: -1888013940
       vertices: []
       indices: 
       edges: []
@@ -192,17 +234,20 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Walk_0: 1585943917
-      Walk_2: -256645333
-      Walk_3: -2054668072
-      Walk_1: 2022988097
+      bomb_0: -1181625492
+      bomb_1: -619728842
+      bomb_3: -1587703124
+      bomb_2: -1316683987
+      bomb_5: -1888013940
+      bomb_6: -1165343066
+      bomb_4: -489483580
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

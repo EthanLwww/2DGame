@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4f6a1fd082df9a449aa041397ef9361c
+guid: cdb078c53121eb14180fc668264d2501
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -47,8 +47,8 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
-  spriteBorder: {x: 10, y: 10, z: 10, w: 10}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walk_0
+      name: fire_0
       rect:
         serializedVersion: 2
-        x: 28
-        y: 15
-        width: 68
-        height: 162
+        x: 502
+        y: 0
+        width: 119
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 258329eee03d04a49b541e6146ae1651
-      internalID: 1585943917
+      spriteID: f4fe2eb0712ea894a88646fbf57cc139
+      internalID: 1854751465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_1
+      name: fire_1
       rect:
         serializedVersion: 2
-        x: 111
-        y: 17
-        width: 68
-        height: 160
+        x: 657
+        y: 0
+        width: 119
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 723d6557cc6e1f447b7c4acdd0671ca9
-      internalID: 2022988097
+      spriteID: 2c5efb3872b814b4987e0387e936a177
+      internalID: 242228238
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_2
+      name: fire_2
       rect:
         serializedVersion: 2
-        x: 186
-        y: 16
-        width: 68
-        height: 161
+        x: 1136
+        y: 0
+        width: 119
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de8fe7f0a21d5b24bb57fd07764c116f
-      internalID: -256645333
+      spriteID: 025756160f6cb94458fab817197d7674
+      internalID: 1606569344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_3
+      name: fire_3
       rect:
         serializedVersion: 2
-        x: 270
-        y: 20
-        width: 68
-        height: 157
+        x: 1295
+        y: 0
+        width: 119
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,8 +182,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cd5f0990e796a84f917bf32605f3baa
-      internalID: -2054668072
+      spriteID: 5e17e5f88aa82294db35e77ea326e56e
+      internalID: -1658948334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_4
+      rect:
+        serializedVersion: 2
+        x: 1774
+        y: 0
+        width: 119
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69aade8c0215f9b48bbaa67b9b4d9b7e
+      internalID: 1563627583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_5
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 0
+        width: 119
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1631e61796a97444b8dfcad14e1e862c
+      internalID: 556688855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_6
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 0
+        width: 119
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4efe841568b7634e9e966c4ef6a4dd2
+      internalID: 1025671822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_7
+      rect:
+        serializedVersion: 2
+        x: 1462
+        y: 0
+        width: 119
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 837457fb7e4a2ab468c83154f713fb32
+      internalID: 1852787022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_8
+      rect:
+        serializedVersion: 2
+        x: 1617
+        y: 0
+        width: 119
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c471e8bdc099b16478ecb35012d224cc
+      internalID: 1074091402
       vertices: []
       indices: 
       edges: []
@@ -192,17 +297,22 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Walk_0: 1585943917
-      Walk_2: -256645333
-      Walk_3: -2054668072
-      Walk_1: 2022988097
+      fire_2: 1606569344
+      fire_6: 1025671822
+      fire_0: 1854751465
+      fire_4: 1563627583
+      fire_5: 556688855
+      fire_1: 242228238
+      fire_3: -1658948334
+      fire_7: 1852787022
+      fire_8: 1074091402
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
