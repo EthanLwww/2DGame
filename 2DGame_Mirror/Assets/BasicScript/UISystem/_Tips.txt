@@ -1,0 +1,7 @@
+UIManager为UI管理器，用于管理所有UI。
+    可用于获取UIPanel，显示UI，隐藏UI
+    UI应在Panel组件下制作，制作好的UI需要包装成预制体放入Assets/Resources/UI目录内
+
+PanelBase为UI类的父类
+
+MonoBase为单个UI中功能组件的父类
