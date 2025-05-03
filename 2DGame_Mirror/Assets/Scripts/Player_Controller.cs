@@ -30,12 +30,20 @@ public class Player_Controller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();//获得当前角色刚体
 
         vecGravity = new Vector2(0,-Physics2D.gravity.y);
-        
+        groundCheck = gameObject.transform;
+        //init
+        moveSpeed = 4f;
+        jumpSpeed = 6f;
+        jumpMultiplier = 4f;
+        fallMultiplier = 1f;
+        jumpTime = 0.2f;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
         moveDir = Input.GetAxis("Horizontal");
         Jump();
     }
@@ -50,7 +58,7 @@ public class Player_Controller : MonoBehaviour
         
         Vector2 playVel = new Vector2(moveDir * moveSpeed,rb.velocity.y);
         rb.velocity = playVel;
-        if((facingLeft && moveDir>0)||(!facingLeft&&moveDir<0))
+        if((facingLeft && moveDir<0)||(!facingLeft&&moveDir>0))
         {
             facingLeft = !facingLeft;
             transform.localScale = new Vector3(transform.localScale.x * -1, 1, 1);
@@ -59,6 +67,7 @@ public class Player_Controller : MonoBehaviour
 
     void Jump()
     {
+        Debug.Log(IsGround());
         if(Input.GetButtonDown("Jump"))
         {
             if(IsGround())
@@ -82,7 +91,7 @@ public class Player_Controller : MonoBehaviour
             isJumping = false;
         }
 
-        if(rb.velocity.y > 0&&isJumping)
+        if(rb.velocity.y > 0 && isJumping)
         {
             jumpContinue += Time.deltaTime;
             if(jumpContinue > jumpTime)
@@ -101,6 +110,6 @@ public class Player_Controller : MonoBehaviour
     private bool IsGround()
     {
 
-        return Physics2D.OverlapCapsule(groundCheck.position,new Vector2(0.6f, 0.03f),CapsuleDirection2D.Horizontal,0,groundLayer);
+        return Physics2D.OverlapCapsule(groundCheck.position,new Vector2(0.87f, 2.60f),CapsuleDirection2D.Vertical,0,groundLayer);
     }
 }
