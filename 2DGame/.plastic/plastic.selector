@@ -1,4 +1,0 @@
-repository "2DGame@tj_wechat_os_qy04ahqeypnvxb0jvfluwp5vi@cloud.cn"
-  path "/"
-    br "/main"
-    co "/main"
