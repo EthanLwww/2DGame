@@ -32,6 +32,19 @@ public class SceneStateControl
 
         currentState = state;
     }
+
+    public void SetState(ISceneState state)
+    {
+        Debug.Log("SetState : " + state.ToString());
+        stateBegin = false;
+
+        if (currentState != null)
+        {
+            currentState.StateEnd();
+        }
+
+        currentState = state;
+    }
     IEnumerator LoadScene(string SceneName)
     {
         if (SceneName == null || SceneName.Length == 0) { yield break; }

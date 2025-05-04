@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
 {
@@ -23,7 +24,9 @@ public class Player_Controller : MonoBehaviour
     bool facingLeft = true;
     float moveDir;
 
-
+    bool canMove = true;
+    public Vector3 rebirthPos;
+    public bool isGet2Garget = false;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();//获取当前角色刚体
@@ -36,19 +39,21 @@ public class Player_Controller : MonoBehaviour
         jumpMultiplier = 4f;
         fallMultiplier = 0.1f;
         jumpTime = 0.2f;
+        isGet2Garget = false;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        moveDir = Input.GetAxis("Horizontal");
+        if (canMove)
+            moveDir = Input.GetAxis("Horizontal");
+        else moveDir = 0;
         if (moveDir != 0)
             animator.SetBool("isWalking", true);
         else animator.SetBool("isWalking", false);
         Jump();
-        if (IsGround())
+        if (IsGround()&&canMove)
         {
             animator.SetBool("isOnGround", true);
             animator.SetBool("isFalling", false);
@@ -79,7 +84,7 @@ public class Player_Controller : MonoBehaviour
         if ((facingLeft && moveDir < 0) || (!facingLeft && moveDir > 0))
         {
             facingLeft = !facingLeft;
-            transform.localScale = new Vector3(transform.localScale.x * -1, 1, 1);
+            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
         }
     }
 
@@ -137,5 +142,37 @@ public class Player_Controller : MonoBehaviour
     private bool IsGround()
     {
         return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.87f, 2.60f), CapsuleDirection2D.Vertical, 0, groundLayer);
+    }
+
+
+    public void Die()
+    {
+        animator.SetBool("isDead", true);
+        canMove = false;
+        IEnumeratorSystem.Instance.startCoroutine(DieTimer());
+    }
+
+    IEnumerator DieTimer()
+    {
+        yield return new WaitForSeconds(0.33f);
+        gameObject.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("isDead", false);
+        Rebirth();
+    }
+
+    public void Rebirth()
+    {
+        gameObject.SetActive(true);
+        transform.position = rebirthPos;
+        animator.SetBool("isRebirthing", true);
+        IEnumeratorSystem.Instance.startCoroutine(RebirthTimer());
+    }
+
+    IEnumerator RebirthTimer()
+    {
+        yield return new WaitForSeconds(0.41f);
+        animator.SetBool("isRebirthing", false);
+        canMove = true;
     }
 }

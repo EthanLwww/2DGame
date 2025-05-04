@@ -20,6 +20,7 @@ public class Fall_and_back : MonoBehaviour
     //将玩家触发存档点的位置设置为复活位置
     public void CodePoint()
     {
+        playerPosition = GameObject.FindWithTag("Player").transform;
         playerNowPosition = playerPosition.transform.position;      
     }
 }
