@@ -1,37 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Fall_and_back : MonoBehaviour
 {
-    [SerializeField] public Transform playerPosition;
-    [SerializeField] public Transform playerNowPosition; //记录重生点
-    public static Fall_and_back instance{ get;private set; }
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-    }
+    public Transform playerPosition;
+    public Transform playerNowPosition; //记录重生点
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("进入");
-            codePoint();
+            CodePoint();
             gameObject.SetActive(false);
         }
-        
+
     }
 
-    public void codePoint()
+    public void CodePoint()
     {
         playerNowPosition.transform.position = playerPosition.transform.position;
     }

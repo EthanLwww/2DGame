@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawn : MonoBehaviour
@@ -7,31 +5,17 @@ public class Spawn : MonoBehaviour
     public Transform spawnpoint;
     public GameObject pp;
 
-    public static Spawn instance { get;private set; }
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             //spawnpoint.transform.position = Fall_and_back.instance.playerNowPosition.transform.position;
-            Invoke("setPlayerPosition",1f);
+            Invoke(nameof(SetPlayerPosition), 1f);
         }
     }
-        
-    public void setPlayerPosition()
+
+    public void SetPlayerPosition()
     {
-        pp.transform.position = new Vector2(spawnpoint.transform.position.x,spawnpoint.transform.position.y);
+        pp.transform.position = new Vector2(spawnpoint.transform.position.x, spawnpoint.transform.position.y);
     }
 }

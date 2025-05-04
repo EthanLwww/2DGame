@@ -18,8 +18,6 @@ GameObject
     |── Child2
     |── Child3
 */
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DirectionManager : MonoBehaviour

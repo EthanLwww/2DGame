@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8cfae5b6d305b0d44b541d4e8094ee84
+guid: 491c63594df19ec43bfbe63458198836
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 64
-  spriteBorder: {x: 10, y: 10, z: 10, w: 10}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walk_0
+      name: Lost_0
       rect:
         serializedVersion: 2
-        x: 28
-        y: 15
-        width: 68
-        height: 162
+        x: 0
+        y: 0
+        width: 105
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 258329eee03d04a49b541e6146ae1651
-      internalID: 1585943917
+      spriteID: 0a44548781350ef4695a1b6357489e66
+      internalID: 1134735491
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_1
+      name: Lost_1
       rect:
         serializedVersion: 2
-        x: 111
-        y: 17
-        width: 68
-        height: 160
+        x: 105
+        y: 0
+        width: 105
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,41 +140,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 723d6557cc6e1f447b7c4acdd0671ca9
-      internalID: 2022988097
+      spriteID: d23012933267ac64b89da19b40dee1c9
+      internalID: 1485450961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_2
+      name: Lost_2
       rect:
         serializedVersion: 2
-        x: 186
-        y: 16
-        width: 68
-        height: 161
+        x: 209
+        y: 0
+        width: 101
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 3, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de8fe7f0a21d5b24bb57fd07764c116f
-      internalID: -256645333
+      spriteID: f0f279785e650e4418f751eb2a384e09
+      internalID: 272486145
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_3
+      name: Lost_3
       rect:
         serializedVersion: 2
-        x: 270
-        y: 20
-        width: 68
-        height: 157
+        x: 308
+        y: 0
+        width: 105
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cd5f0990e796a84f917bf32605f3baa
-      internalID: -2054668072
+      spriteID: ce418868e09a2c34d98fdb1cc41c5560
+      internalID: -1130645209
       vertices: []
       indices: 
       edges: []
@@ -192,17 +192,17 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Walk_0: 1585943917
-      Walk_2: -256645333
-      Walk_3: -2054668072
-      Walk_1: 2022988097
+      Lost_3: -1130645209
+      Lost_0: 1134735491
+      Lost_2: 272486145
+      Lost_1: 1485450961
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

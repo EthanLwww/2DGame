@@ -1548,6 +1548,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1675536441086849709, guid: 2e34c2de8e0f7f34bbb46d6e1b7b1cfb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c8ec2faf405684048894bd97e75497df, type: 3}
+    - target: {fileID: 1675536441086849709, guid: 2e34c2de8e0f7f34bbb46d6e1b7b1cfb, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1675536441086849710, guid: 2e34c2de8e0f7f34bbb46d6e1b7b1cfb, type: 3}
       propertyPath: m_RootOrder
       value: 2
