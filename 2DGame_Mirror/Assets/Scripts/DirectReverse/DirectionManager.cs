@@ -47,20 +47,21 @@ public class DirectionManager : MonoBehaviour
 
     void ReversePosition(Transform parent)
     {
-        //reverse the parent
-        Vector2 parentPosition = parent.position;
-        parentPosition.x = -parentPosition.x;
-        parent.position = parentPosition;
-        Debug.Log($"Reversed position of {parent.name}: {parent.position}");
-        //reverse the children
-        foreach (Transform child in parent)
-        {
-            Vector2 childPosition = child.localPosition;
-            childPosition.x = -childPosition.x;
-            child.localPosition = childPosition;
-            Debug.Log($"Reversed position of {parent.name}: {parent.position}");
+        ////reverse the parent
+        //Vector2 parentPosition = parent.position;
+        //parentPosition.x = -parentPosition.x;
+        //parent.position = parentPosition;
+        //Debug.Log($"Reversed position of {parent.name}: {parent.position}");
+        ////reverse the children
+        //foreach (Transform child in parent)
+        //{
+        //    Vector2 childPosition = child.localPosition;
+        //    childPosition.x = -childPosition.x;
+        //    child.localPosition = childPosition;
+        //    Debug.Log($"Reversed position of {parent.name}: {parent.position}");
 
-        }
+        //}
+        parent.localScale = new Vector2(-parent.localScale.x, parent.localScale.y);
 
 
     }
