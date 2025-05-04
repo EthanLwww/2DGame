@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UImenu : MonoBehaviour
+public class start : MonoBehaviour
 {
- public void GameStart()
+ public void OnLoginButtonClick()
     {
-  
+      SceneManager.LoadScene(1);
     }
 
 }
