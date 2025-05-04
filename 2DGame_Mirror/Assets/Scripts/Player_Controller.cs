@@ -22,7 +22,7 @@ public class Player_Controller : MonoBehaviour
     bool facingLeft = true;
     float moveDir;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();//鑾峰緱褰撳墠瑙掕壊鍒氫綋
@@ -33,7 +33,7 @@ public class Player_Controller : MonoBehaviour
         moveSpeed = 4f;
         jumpSpeed = 6f;
         jumpMultiplier = 4f;
-        fallMultiplier = 1f;
+        fallMultiplier = 0.1f;
         jumpTime = 0.2f;
 
     }
@@ -85,6 +85,7 @@ public class Player_Controller : MonoBehaviour
     void Jump()
     {
         Debug.Log(IsGround());
+        //检测跳跃
         if (Input.GetButtonDown("Jump"))
         {
             if (IsGround()) //绗竴娈佃烦
@@ -96,6 +97,7 @@ public class Player_Controller : MonoBehaviour
                 jumpContinue = 0;
                 isDoubleJump = true;
             }
+            //检测是否是二段跳便设置跳跃次数极限为2
             else if (isDoubleJump)
             {
                 animator.SetBool("isDoubleJumping", true);
@@ -130,6 +132,7 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
+    //检测是否位于地面
     private bool IsGround()
     {
         return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.87f, 2.60f), CapsuleDirection2D.Vertical, 0, groundLayer);
