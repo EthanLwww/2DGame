@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d0fb16029a4415849a6a360ab21887c9
+guid: 0cec6939d924c9b4bb631f9502d7a6f5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,148 +105,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jump_L_0
+      name: fall_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 21
-        width: 80
+        x: 14
+        y: 18
+        width: 88
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f981f6840bacd7145a17b8c9665043c6
+      internalID: -1133684708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fall_1
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 19
+        width: 102
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f01ba570ded8013498cf0e6a1540615f
+      internalID: -2023691006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fall_2
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 19
+        width: 87
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a1a00b3dcfb54b41b45cafb0b3fa12a
+      internalID: 1988646189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fall_3
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 20
+        width: 68
         height: 157
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 862a7e462a5aed446b78fcc475c66a78
-      internalID: -725090029
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jump_L_1
-      rect:
-        serializedVersion: 2
-        x: 123
-        y: 6
-        width: 98
-        height: 167
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c73cffd179baddc4c8db0f590242ff34
-      internalID: 1092739927
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jump_L_2
-      rect:
-        serializedVersion: 2
-        x: 230
-        y: 6
-        width: 98
-        height: 172
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6bd194a5a41de35498e4f53d3822ecd6
-      internalID: -665177462
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jump_L_3
-      rect:
-        serializedVersion: 2
-        x: 339
-        y: 24
-        width: 103
-        height: 155
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6827c44659f85e645b9fc5d6428ef724
-      internalID: -431892090
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jump_L_4
-      rect:
-        serializedVersion: 2
-        x: 451
-        y: 10
-        width: 97
-        height: 167
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3fd235579f414234592cdcfd99605caf
-      internalID: 1337411326
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jump_L_6
-      rect:
-        serializedVersion: 2
-        x: 563
-        y: 7
-        width: 80
-        height: 170
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6a7dd6e7f95b05f4cb67abd7056bf9fa
-      internalID: 216574941
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jump_L_7
-      rect:
-        serializedVersion: 2
-        x: 660
-        y: 7
-        width: 80
-        height: 170
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc57bfef50242f94b8f9789f959251f9
-      internalID: 1836195794
+      spriteID: 9ae938903cf863449940fbc8a0b08063
+      internalID: -1365022959
       vertices: []
       indices: 
       edges: []
@@ -262,23 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Jump_L_15: -2093404891
-      Jump_L_1: 1092739927
-      Jump_L_11: -316210812
-      Jump_L_14: 2086597153
-      Jump_L_8: 1359635164
-      Jump_L_5: -1473891568
-      Jump_L_7: 1836195794
-      Jump_L_9: 114412605
-      Jump_L_2: -665177462
-      Jump_L_4: 1337411326
-      Jump_L_0: -725090029
-      Jump_L_12: 2067279655
-      Jump_L_13: -718381963
-      Jump_L_10: -408063063
-      Jump_L_3: -431892090
-      Jump_L_6: 216574941
-      Jump_L_16: 1649115767
+      fall_2: 1988646189
+      fall_1: -2023691006
+      fall_0: -1133684708
+      fall_3: -1365022959
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
