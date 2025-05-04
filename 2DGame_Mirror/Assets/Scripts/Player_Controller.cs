@@ -1,10 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
 {
     Rigidbody2D rb;
     public Animator animator;
-    /*角色跳跃的设置*/
+    public static int sceneIndex = 1;
+    //角色跳跃的设置
     [SerializeField] float moveSpeed;
     [SerializeField] float jumpSpeed;
     [SerializeField] Transform groundCheck;
@@ -18,14 +19,14 @@ public class Player_Controller : MonoBehaviour
     float jumpContinue;
     bool isJumping;
 
-    /*角色自动转向的设置*/
+    //角色自动转向的设置
     bool facingLeft = true;
     float moveDir;
 
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();//获得当前角色刚体
+        rb = GetComponent<Rigidbody2D>();//获取当前角色刚体
         animator = GetComponent<Animator>();
         vecGravity = new Vector2(0, -Physics2D.gravity.y);
         groundCheck = gameObject.transform;
@@ -85,7 +86,7 @@ public class Player_Controller : MonoBehaviour
     void Jump()
     {
         Debug.Log(IsGround());
-        //�����Ծ
+        //检测跳跃
         if (Input.GetButtonDown("Jump"))
         {
             if (IsGround()) //第一段跳
@@ -97,7 +98,7 @@ public class Player_Controller : MonoBehaviour
                 jumpContinue = 0;
                 isDoubleJump = true;
             }
-            //����Ƿ��Ƕ�������������Ծ��������Ϊ2
+            //检测是否是二段跳便设置跳跃次数极限为2
             else if (isDoubleJump)
             {
                 animator.SetBool("isDoubleJumping", true);
@@ -132,7 +133,7 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
-    //����Ƿ�λ�ڵ���
+    //检测是否位于地面
     private bool IsGround()
     {
         return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.87f, 2.60f), CapsuleDirection2D.Vertical, 0, groundLayer);
