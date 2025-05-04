@@ -4,8 +4,7 @@ public class Player_Controller : MonoBehaviour
 {
     Rigidbody2D rb;
     public Animator animator;
-
-    /*½ÇÉ«ÌøÔ¾µÄÉèÖÃ*/
+    /*è§’è‰²è·³è·ƒçš„è®¾ç½®*/
     [SerializeField] float moveSpeed;
     [SerializeField] float jumpSpeed;
     [SerializeField] Transform groundCheck;
@@ -19,14 +18,14 @@ public class Player_Controller : MonoBehaviour
     float jumpContinue;
     bool isJumping;
 
-    /*½ÇÉ«×Ô¶¯×ªÏòµÄÉèÖÃ*/
+    /*è§’è‰²è‡ªåŠ¨è½¬å‘çš„è®¾ç½®*/
     bool facingLeft = true;
     float moveDir;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();//»ñµÃµ±Ç°½ÇÉ«¸ÕÌå
+        rb = GetComponent<Rigidbody2D>();//è·å¾—å½“å‰è§’è‰²åˆšä½“
         animator = GetComponent<Animator>();
         vecGravity = new Vector2(0, -Physics2D.gravity.y);
         groundCheck = gameObject.transform;
@@ -48,7 +47,15 @@ public class Player_Controller : MonoBehaviour
             animator.SetBool("isWalking", true);
         else animator.SetBool("isWalking", false);
         Jump();
-
+        if (IsGround())
+        {
+            animator.SetBool("isOnGround", true);
+            animator.SetBool("isFalling", false);
+        }
+        else
+        {
+            animator.SetBool("isOnGround", false);
+        }
         if (Input.GetKeyDown(KeyCode.O))
             animator.SetBool("isDead", true);
 
@@ -80,8 +87,9 @@ public class Player_Controller : MonoBehaviour
         Debug.Log(IsGround());
         if (Input.GetButtonDown("Jump"))
         {
-            if (IsGround())
+            if (IsGround()) //ç¬¬ä¸€æ®µè·³
             {
+
                 rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
                 animator.SetBool("isJumping", true);
                 isJumping = true;
@@ -118,11 +126,12 @@ public class Player_Controller : MonoBehaviour
             rb.velocity -= vecGravity * fallMultiplier * Time.deltaTime;
             animator.SetBool("isJumping", false);
             animator.SetBool("isDoubleJumping", false);
+            animator.SetBool("isFalling", true);
         }
     }
 
     private bool IsGround()
-    { 
+    {
         return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.87f, 2.60f), CapsuleDirection2D.Vertical, 0, groundLayer);
     }
 }

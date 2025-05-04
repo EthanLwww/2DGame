@@ -108,12 +108,12 @@ TextureImporter:
       name: Jump_L_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 107.14286
-        height: 200
+        x: 32
+        y: 21
+        width: 80
+        height: 157
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -129,12 +129,12 @@ TextureImporter:
       name: Jump_L_1
       rect:
         serializedVersion: 2
-        x: 98
-        y: 0
-        width: 107
-        height: 200
+        x: 123
+        y: 6
+        width: 98
+        height: 167
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -150,12 +150,12 @@ TextureImporter:
       name: Jump_L_2
       rect:
         serializedVersion: 2
-        x: 196
-        y: 0
-        width: 107
-        height: 200
+        x: 230
+        y: 6
+        width: 98
+        height: 172
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -171,12 +171,12 @@ TextureImporter:
       name: Jump_L_3
       rect:
         serializedVersion: 2
-        x: 308
-        y: 0
-        width: 107
-        height: 200
+        x: 339
+        y: 24
+        width: 103
+        height: 155
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -192,12 +192,12 @@ TextureImporter:
       name: Jump_L_4
       rect:
         serializedVersion: 2
-        x: 415
-        y: 0
-        width: 107
-        height: 200
+        x: 451
+        y: 10
+        width: 97
+        height: 167
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,36 +210,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_L_5
-      rect:
-        serializedVersion: 2
-        x: 520
-        y: 0
-        width: 107
-        height: 200
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c25d848efb64b0b4a906878a90c2c034
-      internalID: -1473891568
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Jump_L_6
       rect:
         serializedVersion: 2
-        x: 626
-        y: 0
-        width: 107
-        height: 200
+        x: 563
+        y: 7
+        width: 80
+        height: 170
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -247,6 +226,27 @@ TextureImporter:
       bones: []
       spriteID: 6a7dd6e7f95b05f4cb67abd7056bf9fa
       internalID: 216574941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_L_7
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 7
+        width: 80
+        height: 170
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc57bfef50242f94b8f9789f959251f9
+      internalID: 1836195794
       vertices: []
       indices: 
       edges: []
@@ -262,13 +262,23 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Jump_L_15: -2093404891
       Jump_L_1: 1092739927
+      Jump_L_11: -316210812
+      Jump_L_14: 2086597153
+      Jump_L_8: 1359635164
       Jump_L_5: -1473891568
+      Jump_L_7: 1836195794
+      Jump_L_9: 114412605
       Jump_L_2: -665177462
       Jump_L_4: 1337411326
       Jump_L_0: -725090029
+      Jump_L_12: 2067279655
+      Jump_L_13: -718381963
+      Jump_L_10: -408063063
       Jump_L_3: -431892090
       Jump_L_6: 216574941
+      Jump_L_16: 1649115767
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
