@@ -4,6 +4,7 @@ public class Player_Controller : MonoBehaviour
 {
     Rigidbody2D rb;
     public Animator animator;
+    public static int sceneIndex = 1;
 
     /*½ÇÉ«ÌøÔ¾µÄÉèÖÃ*/
     [SerializeField] float moveSpeed;
