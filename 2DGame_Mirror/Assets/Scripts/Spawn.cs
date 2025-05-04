@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
-    public Transform spawnpoint;
+    public Vector2 spawnpoint;
     public GameObject pp;
 
     public static Spawn instance { get;private set; }
@@ -25,13 +25,13 @@ public class Spawn : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            //spawnpoint.transform.position = Fall_and_back.instance.playerNowPosition.transform.position;
+            spawnpoint = Fall_and_back.instance.playerNowPosition.transform.position;
             Invoke("setPlayerPosition",1f);
         }
     }
         
     public void setPlayerPosition()
     {
-        pp.transform.position = new Vector2(spawnpoint.transform.position.x,spawnpoint.transform.position.y);
+        pp.transform.position = new Vector2(spawnpoint.x,spawnpoint.y);
     }
 }
