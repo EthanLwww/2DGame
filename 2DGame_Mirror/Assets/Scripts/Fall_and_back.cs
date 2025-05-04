@@ -6,7 +6,7 @@ using UnityEngine;
 public class Fall_and_back : MonoBehaviour
 {
     [SerializeField] public Transform playerPosition;
-    [SerializeField] public Transform playerNowPosition; //¼ÇÂ¼ÖØÉúµã
+    [SerializeField] public Transform playerNowPosition; //è®°å½•é‡ç”Ÿç‚¹
     public static Fall_and_back instance{ get;private set; }
     private void Awake()
     {
@@ -24,7 +24,7 @@ public class Fall_and_back : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("½øÈë");
+            Debug.Log("è¿›å…¥");
             codePoint();
             gameObject.SetActive(false);
         }
