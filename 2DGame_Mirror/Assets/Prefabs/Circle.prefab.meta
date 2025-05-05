@@ -22,6 +22,7 @@ fileFormatVersion: 2
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<<< Updated upstream:2DGame_Mirror/Assets/Prefabs/Circle.prefab.meta
 guid: 4dccc827ef49bb64eb9cf2ba8505841a
 PrefabImporter:
@@ -29,6 +30,10 @@ PrefabImporter:
 guid: b08e640e284d6794e94eadc2c594bf9e
 DefaultImporter:
 >>>>>>>> Stashed changes:2DGame_Mirror/Assets/Resources/UI/ui panel.unity.meta
+=======
+guid: 4dccc827ef49bb64eb9cf2ba8505841a
+PrefabImporter:
+>>>>>>> Stashed changes
 =======
 guid: 4dccc827ef49bb64eb9cf2ba8505841a
 PrefabImporter:
