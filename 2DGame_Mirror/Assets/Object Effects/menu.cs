@@ -5,9 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public void LoadLevel1_1()
+    public void OnLoginButtonClick()
     {
-        SceneManager.LoadScene("scene2");
-
+        SceneManager.LoadScene(1);
     }
 }
