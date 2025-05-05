@@ -31,6 +31,7 @@ fileFormatVersion: 2
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<<< Updated upstream:2DGame_Mirror/Assets/Prefabs/Spawnzone.prefab.meta
 guid: 552b7bee44b606f47ac4d095318eba04
 PrefabImporter:
@@ -38,6 +39,10 @@ PrefabImporter:
 guid: b08e640e284d6794e94eadc2c594bf9e
 DefaultImporter:
 >>>>>>>> Stashed changes:2DGame_Mirror/Assets/Resources/UI/ui panel.unity.meta
+=======
+guid: 552b7bee44b606f47ac4d095318eba04
+PrefabImporter:
+>>>>>>> Stashed changes
 =======
 guid: 552b7bee44b606f47ac4d095318eba04
 PrefabImporter:
