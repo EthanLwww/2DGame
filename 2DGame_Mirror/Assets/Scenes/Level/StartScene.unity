@@ -619,7 +619,11 @@ CanvasRenderer:
   m_GameObject: {fileID: 1434824686}
   m_CullTransparentMesh: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &1515694254
+=======
+--- !u!1 &1522089718
+>>>>>>> Stashed changes
 =======
 --- !u!1 &1522089718
 >>>>>>> Stashed changes
@@ -631,15 +635,21 @@ GameObject:
   serializedVersion: 6
   m_Component:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - component: {fileID: 1515694255}
   m_Layer: 0
   m_Name: BG
 =======
+=======
+>>>>>>> Stashed changes
   - component: {fileID: 1522089719}
   - component: {fileID: 1522089721}
   - component: {fileID: 1522089720}
   m_Layer: 0
   m_Name: BGMPlayer
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -647,7 +657,11 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!4 &1515694255
+=======
+--- !u!4 &1522089719
+>>>>>>> Stashed changes
 =======
 --- !u!4 &1522089719
 >>>>>>> Stashed changes
@@ -656,6 +670,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_GameObject: {fileID: 1515694254}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -669,6 +684,8 @@ Transform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 =======
+=======
+>>>>>>> Stashed changes
   m_GameObject: {fileID: 1522089718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.7702268, y: -1.628084, z: -9.96264}
@@ -786,6 +803,9 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &1541127791
 GameObject:

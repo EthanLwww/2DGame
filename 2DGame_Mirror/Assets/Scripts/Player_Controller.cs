@@ -106,8 +106,11 @@ public class Player_Controller : MonoBehaviour
     void Move()
     {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         rb.velocity = new Vector2(move.x * moveSpeed * Time.deltaTime, rb.velocity.y) ;
 =======
+=======
+>>>>>>> Stashed changes
         if (Jump_Check.OnGround == false || move.x == 0)
         {
             moveAudio.Stop();
