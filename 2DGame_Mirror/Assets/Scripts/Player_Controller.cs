@@ -1,16 +1,39 @@
-﻿using System.Collections;
+﻿using System;
 using UnityEngine;
+using System.Collections;
+using UnityEngine.InputSystem;
 
 public class Player_Controller : MonoBehaviour
 {
     Rigidbody2D rb;
     public Animator animator;
     public static int sceneIndex = 1;
+
+    private PlayerInputAction controls;
+    private Vector2 move;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();//获取当前角色刚体
+        controls = new PlayerInputAction();
+
+    }
+    private void OnEnable()
+    {
+        controls.PlayerAction.Enable();
+    }
+    void OnDisable()
+    {
+        controls.PlayerAction.Disable();
+    }
+
+
+    [Header("玩家设置基本属性设置")]
     //角色跳跃的设置
-    [SerializeField] float moveSpeed;
-    [SerializeField] float jumpSpeed;
+    [SerializeField]private float moveSpeed;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundLayer;
+    [SerializeField] float jumpSpeed;
     bool isDoubleJump;
 
     Vector2 vecGravity;
@@ -22,20 +45,21 @@ public class Player_Controller : MonoBehaviour
 
     //角色自动转向的设置
     bool facingLeft = true;
-    float moveDir;
 
     bool canMove = true;
     public Vector3 rebirthPos;
     public bool isGet2Garget = false;
+
+
+
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();//获取当前角色刚体
+        
         animator = GetComponent<Animator>();
         vecGravity = new Vector2(0, -Physics2D.gravity.y);
         groundCheck = gameObject.transform;
-        //init
-        moveSpeed = 4f;
-        jumpSpeed = 6f;
+        moveSpeed = 249f;
+        jumpSpeed = 12f;
         jumpMultiplier = 4f;
         fallMultiplier = 0.1f;
         jumpTime = 0.2f;
@@ -46,14 +70,19 @@ public class Player_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        controls.PlayerAction.Jump.started += JumpIn;
+        controls.PlayerAction.Jump.canceled += JumpOut;
+
         if (canMove)
-            moveDir = Input.GetAxis("Horizontal");
-        else moveDir = 0;
-        if (moveDir != 0)
+            move = controls.PlayerAction.Move.ReadValue<Vector2>();
+        else move.x = 0;
+        if (move.x != 0)
             animator.SetBool("isWalking", true);
         else animator.SetBool("isWalking", false);
-        Jump();
-        if (IsGround()&&canMove)
+
+
+        if (IsGround() && canMove)
         {
             animator.SetBool("isOnGround", true);
             animator.SetBool("isFalling", false);
@@ -62,11 +91,11 @@ public class Player_Controller : MonoBehaviour
         {
             animator.SetBool("isOnGround", false);
         }
-        if (Input.GetKeyDown(KeyCode.O))
+        /*if (Input.GetKeyDown(KeyCode.O))
             animator.SetBool("isDead", true);
 
         if (Input.GetKeyDown(KeyCode.P))
-            animator.SetBool("isRebirthing", true);
+            animator.SetBool("isRebirthing", true);*/
     }
 
     private void FixedUpdate()
@@ -74,51 +103,49 @@ public class Player_Controller : MonoBehaviour
         Move();
     }
 
+    private bool IsGround()
+    {
+        return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.87f, 2.60f), CapsuleDirection2D.Vertical, 0, groundLayer);
+    }
+
     void Move()
     {
-
-        //Vector2 playVel = new Vector2(moveDir * moveSpeed, rb.velocity.y);
-        //rb.velocity = playVel;
-
-        transform.Translate(new Vector2(moveDir, 0) * moveSpeed * Time.deltaTime, Space.World);
-        if ((facingLeft && moveDir < 0) || (!facingLeft && moveDir > 0))
+        rb.velocity = new Vector2(move.x * moveSpeed * Time.deltaTime, rb.velocity.y) ;
+        if ((facingLeft && move.x < 0) || (!facingLeft && move.x > 0))
         {
             facingLeft = !facingLeft;
             transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
         }
+
     }
 
-    void Jump()
+    private void JumpIn(InputAction.CallbackContext context)
     {
-        Debug.Log(IsGround());
-        //检测跳跃
-        if (Input.GetButtonDown("Jump"))
+        if (IsGround()) //第一段跳
         {
-            if (IsGround()) //第一段跳
-            {
-
-                rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
-                animator.SetBool("isJumping", true);
-                isJumping = true;
-                jumpContinue = 0;
-                isDoubleJump = true;
-            }
-            //检测是否是二段跳便设置跳跃次数极限为2
-            else if (isDoubleJump)
-            {
-                animator.SetBool("isDoubleJumping", true);
-                rb.velocity = new Vector2(rb.velocity.x, jumpSpeed * 0.75f);
-                isJumping = true;
-                jumpContinue = 0;
-                isDoubleJump = false;
-            }
+            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+            animator.SetBool("isJumping", true);
+            isJumping = true;
+            jumpContinue = 0;
+            isDoubleJump = true;
+        }
+        //检测是否是二段跳便设置跳跃次数极限为2
+        else if (isDoubleJump)
+        {
+            animator.SetBool("isDoubleJumping", true);
+            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed * 0.75f);
+            isJumping = true;
+            jumpContinue = 0;
+            isDoubleJump = false;
         }
 
-        if (Input.GetButtonUp("Jump"))
-        {
-            isJumping = false;
-        }
 
+
+    }
+
+    private void JumpOut(InputAction.CallbackContext context)
+    {
+        isJumping = false;
         if (rb.velocity.y > 0 && isJumping)
         {
             jumpContinue += Time.deltaTime;
@@ -137,13 +164,6 @@ public class Player_Controller : MonoBehaviour
             animator.SetBool("isFalling", true);
         }
     }
-
-    //检测是否位于地面
-    private bool IsGround()
-    {
-        return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.87f, 2.60f), CapsuleDirection2D.Vertical, 0, groundLayer);
-    }
-
 
     public void Die()
     {
@@ -175,4 +195,6 @@ public class Player_Controller : MonoBehaviour
         animator.SetBool("isRebirthing", false);
         canMove = true;
     }
+
 }
+
