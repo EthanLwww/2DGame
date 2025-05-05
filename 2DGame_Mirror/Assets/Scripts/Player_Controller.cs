@@ -16,7 +16,7 @@ public class Player_Controller : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();//获取当前角色刚体
         controls = new PlayerInputAction();
-
+        animator = GetComponent<Animator>();
     }
     private void OnEnable()
     {
@@ -50,16 +50,14 @@ public class Player_Controller : MonoBehaviour
     public Vector3 rebirthPos;
     public bool isGet2Garget = false;
 
-
-
     void Start()
     {
         
-        animator = GetComponent<Animator>();
+        
         vecGravity = new Vector2(0, -Physics2D.gravity.y);
         groundCheck = gameObject.transform;
         moveSpeed = 249f;
-        jumpSpeed = 12f;
+        jumpSpeed = 6f;
         jumpMultiplier = 4f;
         fallMultiplier = 0.1f;
         jumpTime = 0.2f;
@@ -70,10 +68,8 @@ public class Player_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        controls.PlayerAction.Jump.started += JumpIn;
-        controls.PlayerAction.Jump.canceled += JumpOut;
-
+        Debug.Log(Jump_Check.OnGround);
+        jump();
         if (canMove)
             move = controls.PlayerAction.Move.ReadValue<Vector2>();
         else move.x = 0;
@@ -82,7 +78,7 @@ public class Player_Controller : MonoBehaviour
         else animator.SetBool("isWalking", false);
 
 
-        if (IsGround() && canMove)
+        if (Jump_Check.OnGround && canMove)
         {
             animator.SetBool("isOnGround", true);
             animator.SetBool("isFalling", false);
@@ -103,11 +99,6 @@ public class Player_Controller : MonoBehaviour
         Move();
     }
 
-    private bool IsGround()
-    {
-        return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.87f, 2.60f), CapsuleDirection2D.Vertical, 0, groundLayer);
-    }
-
     void Move()
     {
         rb.velocity = new Vector2(move.x * moveSpeed * Time.deltaTime, rb.velocity.y) ;
@@ -119,33 +110,11 @@ public class Player_Controller : MonoBehaviour
 
     }
 
-    private void JumpIn(InputAction.CallbackContext context)
+
+    private void jump()
     {
-        if (IsGround()) //第一段跳
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
-            animator.SetBool("isJumping", true);
-            isJumping = true;
-            jumpContinue = 0;
-            isDoubleJump = true;
-        }
-        //检测是否是二段跳便设置跳跃次数极限为2
-        else if (isDoubleJump)
-        {
-            animator.SetBool("isDoubleJumping", true);
-            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed * 0.75f);
-            isJumping = true;
-            jumpContinue = 0;
-            isDoubleJump = false;
-        }
-
-
-
-    }
-
-    private void JumpOut(InputAction.CallbackContext context)
-    {
-        isJumping = false;
+        controls.PlayerAction.Jump.started += JumpIn;
+        controls.PlayerAction.Jump.canceled += JumpOut;
         if (rb.velocity.y > 0 && isJumping)
         {
             jumpContinue += Time.deltaTime;
@@ -163,7 +132,43 @@ public class Player_Controller : MonoBehaviour
             animator.SetBool("isDoubleJumping", false);
             animator.SetBool("isFalling", true);
         }
+
+        if (Jump_Check.OnGround)
+        {
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isDoubleJumping", false);
+            animator.SetBool("isFalling", false);
+            animator.SetBool("isOnGround", true);
+        }
     }
+    private void JumpIn(InputAction.CallbackContext context)
+    {
+        if (Jump_Check.OnGround) //第一段跳
+        {
+            Jump_Check.OnGround = false;
+            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+            animator.SetBool("isJumping", true);
+            isJumping = true;
+            jumpContinue = 0;
+            isDoubleJump = true;
+        }
+        //检测是否是二段跳便设置跳跃次数极限为2
+        else if (isDoubleJump)
+        {
+            animator.SetBool("isDoubleJumping", true);
+            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed * 0.75f);
+            isJumping = true;
+            jumpContinue = 0;
+            isDoubleJump = false;
+        }
+
+    }
+
+    private void JumpOut(InputAction.CallbackContext context)
+    {
+        isJumping = false;
+    }
+
 
     public void Die()
     {
