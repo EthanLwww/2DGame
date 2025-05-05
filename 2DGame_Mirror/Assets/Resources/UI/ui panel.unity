@@ -2730,6 +2730,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Start
       objectReference: {fileID: 0}
+    - target: {fileID: 2426470992716640476, guid: b5305fb2cd7038d44b0e8719d1e42a36, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b9143f8fc9582fe4984187df0398e509, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5305fb2cd7038d44b0e8719d1e42a36, type: 3}
 --- !u!1001 &3104267961862428992
@@ -2924,6 +2928,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Try again
       objectReference: {fileID: 0}
+    - target: {fileID: 5231603793172809039, guid: 4be52494bf277384db1aad95d0a0d1f3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7accda50874d2044ca1d60f41f0e71de, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4be52494bf277384db1aad95d0a0d1f3, type: 3}
 --- !u!1001 &6347414332850207031
@@ -3118,6 +3126,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8311263997102913805, guid: 67265c315d8eda64f9dd773a74380385, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ce48e83aa5dbd4d4c878dcaab7a1c257, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67265c315d8eda64f9dd773a74380385, type: 3}
 --- !u!1001 &8578787536325778765
@@ -3215,6 +3227,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8578787535934643878, guid: 8f4290e8d3b5f614fbb17508b495d174, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dc42708e98482a347a157303373329c0, type: 3}
+    - target: {fileID: 8578787535942655312, guid: 8f4290e8d3b5f614fbb17508b495d174, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 17b6e773aabfe7441be9f679dfdfb038, type: 3}
+    - target: {fileID: 8578787536754860586, guid: 8f4290e8d3b5f614fbb17508b495d174, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: aaf958d967ff7374e8b960ea76744c72, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f4290e8d3b5f614fbb17508b495d174, type: 3}
 --- !u!1001 &9215866147185888096
