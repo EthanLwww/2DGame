@@ -9,6 +9,8 @@ using UnityEngine;
 
 public class Level3_1 : ISceneState
 {
+    private Player_Controller player;
+    public Vector3 respawnPos = new(-5.5f, -2.5f, 0);
     public Level3_1(SceneStateControl control) : base(control)
     {
         this.StateName = "Level3_1";
@@ -16,14 +18,18 @@ public class Level3_1 : ISceneState
 
     public override void StateBegin()
     {
-
+        player = Object.Instantiate(Resources.Load<GameObject>("Prefabs/Player"), respawnPos, Quaternion.identity).GetComponent<Player_Controller>();
+        player.rebirthPos = respawnPos;
     }
     public override void StateEnd()
     {
-
+        Object.Destroy(player.gameObject);
     }
     public override void StateUpdate()
     {
-
+        if (player.isGet2Garget == true)
+        {
+            my_control.SetState(new Level3_2(my_control), "Level3_2");
+        }
     }
 }

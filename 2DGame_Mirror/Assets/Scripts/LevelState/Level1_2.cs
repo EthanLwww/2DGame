@@ -10,7 +10,7 @@ using UnityEngine;
 public class Level1_2 : ISceneState
 {
     private Player_Controller player;
-    public Vector3 respawnPos = new(-5f,-2.5f,0);
+    public Vector3 respawnPos = new(-4.5f,-2.5f,0);
     public Level1_2(SceneStateControl control) : base(control)
     {
         this.StateName = "Level1_2";

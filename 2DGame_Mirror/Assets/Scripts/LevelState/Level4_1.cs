@@ -9,6 +9,8 @@ using UnityEngine;
 
 public class Level4_1 : ISceneState
 {
+    private Player_Controller player;
+    public Vector3 respawnPos;
     public Level4_1(SceneStateControl control) : base(control)
     {
         this.StateName = "Level4_1";
