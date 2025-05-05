@@ -10,7 +10,6 @@ The game object can have recursion child objects.
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.PlayerSettings;
 
 public class DirectionManager : MonoBehaviour
 {
@@ -34,6 +33,7 @@ public class DirectionManager : MonoBehaviour
     [Header("Key to trigger the reverse direction")]
     private GameObject go;
     private Rigidbody2D rb;
+    public bool canOverUpAndDown;
     void Start()
     {
         //get the game object
@@ -59,8 +59,11 @@ public class DirectionManager : MonoBehaviour
 
     private void overUpAndDown(InputAction.CallbackContext context)
     {
-        Debug.Log("reverse vertical!");
-        ReverseVerticalPosition(go.transform);
+        if (canOverUpAndDown)
+        {
+            Debug.Log("reverse vertical!");
+            ReverseVerticalPosition(go.transform);
+        }
     }
 
 

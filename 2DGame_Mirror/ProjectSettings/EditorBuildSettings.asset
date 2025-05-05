@@ -5,14 +5,35 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestScene/ReverseTest.unity
     guid: 8ae050d0ab6564a42bdd07730241355c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ArtAssetsTestScene.unity
     guid: bd6265644b7adc243b55b13709387656
+  - enabled: 1
+    path: Assets/Scenes/Level/StartScene.unity
+    guid: 3e06f5c08e0f2974493e49825e4c9581
+  - enabled: 1
+    path: Assets/Scenes/Level/Level1_1.unity
+    guid: 4f530491f1107144d81a1e2552eb7f10
+  - enabled: 1
+    path: Assets/Scenes/Level/Level1_2.unity
+    guid: dc86a313d984e464dbcce880ad503298
+  - enabled: 1
+    path: Assets/Scenes/Level/Level2_1.unity
+    guid: 23a21277e03124542bdd0f4ee9c33550
+  - enabled: 1
+    path: Assets/Scenes/Level/Level2_2.unity
+    guid: 785d5c9a96927054192b954ed25c384e
+  - enabled: 1
+    path: Assets/Scenes/Level/Level3_1.unity
+    guid: 1f70443376ac7a349b1ba408ee10e50d
+  - enabled: 1
+    path: Assets/Scenes/Level/Level3_2.unity
+    guid: ff6b49dda3dcfcb4a9993259fecde4e1
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: dce7d0b6a35f8a640bf13ddd912b2e3b, type: 2}

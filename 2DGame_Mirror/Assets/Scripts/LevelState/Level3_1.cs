@@ -11,6 +11,7 @@ public class Level3_1 : ISceneState
 {
     private Player_Controller player;
     public Vector3 respawnPos = new(-5.5f, -2.5f, 0);
+    private DirectionManager directionManager;
     public Level3_1(SceneStateControl control) : base(control)
     {
         this.StateName = "Level3_1";
@@ -20,6 +21,9 @@ public class Level3_1 : ISceneState
     {
         player = Object.Instantiate(Resources.Load<GameObject>("Prefabs/Player"), respawnPos, Quaternion.identity).GetComponent<Player_Controller>();
         player.rebirthPos = respawnPos;
+        player.canDoubleJump = true;
+        directionManager = Transform.FindObjectOfType<DirectionManager>();
+        directionManager.canOverUpAndDown = true;
     }
     public override void StateEnd()
     {

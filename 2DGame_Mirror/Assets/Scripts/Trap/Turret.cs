@@ -39,7 +39,26 @@ public class Turret : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);//create a bullet
+        Quaternion quaternion;
+        switch (fireDirection)
+        {
+            case Direction.Up:
+                quaternion = Quaternion.LookRotation(Vector2.up);//这是错的
+                break;
+            case Direction.Down:
+                quaternion = Quaternion.LookRotation(Vector2.down);//这是错的
+                break;
+            case Direction.Left:
+                quaternion = Quaternion.LookRotation(new Vector3(0,0,-1));
+                break;
+            case Direction.Right:
+                quaternion = Quaternion.LookRotation(new Vector3(0, 0, 1));
+                break;
+            default:
+                quaternion = Quaternion.identity;
+                break;
+        }
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, quaternion);//create a bullet
 
         //get bullet's rigidbody and set speed
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();

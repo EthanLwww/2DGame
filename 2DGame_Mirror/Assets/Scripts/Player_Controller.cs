@@ -49,6 +49,7 @@ public class Player_Controller : MonoBehaviour
     bool canMove = true;
     public Vector3 rebirthPos;
     public bool isGet2Garget = false;
+    public bool canDoubleJump = false;
 
     void Start()
     {
@@ -56,12 +57,9 @@ public class Player_Controller : MonoBehaviour
         
         vecGravity = new Vector2(0, -Physics2D.gravity.y);
         groundCheck = gameObject.transform;
-        moveSpeed = 249f;
-        jumpSpeed = 6f;
-        jumpMultiplier = 4f;
-        fallMultiplier = 0.1f;
-        jumpTime = 0.2f;
+        
         isGet2Garget = false;
+
 
     }
 
@@ -101,7 +99,8 @@ public class Player_Controller : MonoBehaviour
 
     void Move()
     {
-        rb.velocity = new Vector2(move.x * moveSpeed * Time.deltaTime, rb.velocity.y) ;
+        //rb.velocity = new Vector2(move.x * moveSpeed * Time.deltaTime, rb.velocity.y) ;
+        transform.Translate(new Vector2(move.x ,0) * moveSpeed * Time.deltaTime, Space.World);
         if ((facingLeft && move.x < 0) || (!facingLeft && move.x > 0))
         {
             facingLeft = !facingLeft;
@@ -153,7 +152,7 @@ public class Player_Controller : MonoBehaviour
             isDoubleJump = true;
         }
         //检测是否是二段跳便设置跳跃次数极限为2
-        else if (isDoubleJump)
+        else if (isDoubleJump && canDoubleJump)
         {
             animator.SetBool("isDoubleJumping", true);
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed * 0.75f);
@@ -181,6 +180,7 @@ public class Player_Controller : MonoBehaviour
     {
         yield return new WaitForSeconds(0.33f);
         gameObject.SetActive(false);
+        GameObject.Find("Axis").transform.localScale = new(1, 1, 1);
         yield return new WaitForSeconds(1f);
         animator.SetBool("isDead", false);
         Rebirth();
