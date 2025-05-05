@@ -580,7 +580,7 @@ GameObject:
   - component: {fileID: 578677537}
   m_Layer: 0
   m_Name: CenterLine
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -597,8 +597,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7840d097c2414154388f7a4a9b9c34f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizonTrigerKey: 107
-  verticalTrigerKey: 106
 --- !u!212 &578677538
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1657,6 +1655,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1675536441086849682, guid: 2e34c2de8e0f7f34bbb46d6e1b7b1cfb, type: 3}
+      propertyPath: m_Size.x
+      value: 0.86999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675536441086849682, guid: 2e34c2de8e0f7f34bbb46d6e1b7b1cfb, type: 3}
+      propertyPath: m_Size.y
+      value: 2.46117
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675536441086849682, guid: 2e34c2de8e0f7f34bbb46d6e1b7b1cfb, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.054414764
+      objectReference: {fileID: 0}
     - target: {fileID: 1675536441086849707, guid: 2e34c2de8e0f7f34bbb46d6e1b7b1cfb, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1712,6 +1722,10 @@ PrefabInstance:
     - target: {fileID: 1675536441086849710, guid: 2e34c2de8e0f7f34bbb46d6e1b7b1cfb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8353430625102646294, guid: 2e34c2de8e0f7f34bbb46d6e1b7b1cfb, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e34c2de8e0f7f34bbb46d6e1b7b1cfb, type: 3}
