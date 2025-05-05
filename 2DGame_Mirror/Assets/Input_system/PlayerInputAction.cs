@@ -62,6 +62,15 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Mouz"",
+                    ""type"": ""Button"",
+                    ""id"": ""22c529cb-b32d-458a-8f65-4c9bb3f89515"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -372,6 +381,17 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                     ""action"": ""OverturnUAD"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""52ca01cb-a843-4591-b280-ac97e0fe8965"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard;Gamepad"",
+                    ""action"": ""Mouz"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -401,6 +421,7 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
         m_PlayerAction_Jump = m_PlayerAction.FindAction("Jump", throwIfNotFound: true);
         m_PlayerAction_Overturn = m_PlayerAction.FindAction("Overturn", throwIfNotFound: true);
         m_PlayerAction_OverturnUAD = m_PlayerAction.FindAction("OverturnUAD", throwIfNotFound: true);
+        m_PlayerAction_Mouz = m_PlayerAction.FindAction("Mouz", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -464,6 +485,7 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerAction_Jump;
     private readonly InputAction m_PlayerAction_Overturn;
     private readonly InputAction m_PlayerAction_OverturnUAD;
+    private readonly InputAction m_PlayerAction_Mouz;
     public struct PlayerActionActions
     {
         private @PlayerInputAction m_Wrapper;
@@ -472,6 +494,7 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_PlayerAction_Jump;
         public InputAction @Overturn => m_Wrapper.m_PlayerAction_Overturn;
         public InputAction @OverturnUAD => m_Wrapper.m_PlayerAction_OverturnUAD;
+        public InputAction @Mouz => m_Wrapper.m_PlayerAction_Mouz;
         public InputActionMap Get() { return m_Wrapper.m_PlayerAction; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -493,6 +516,9 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                 @OverturnUAD.started -= m_Wrapper.m_PlayerActionActionsCallbackInterface.OnOverturnUAD;
                 @OverturnUAD.performed -= m_Wrapper.m_PlayerActionActionsCallbackInterface.OnOverturnUAD;
                 @OverturnUAD.canceled -= m_Wrapper.m_PlayerActionActionsCallbackInterface.OnOverturnUAD;
+                @Mouz.started -= m_Wrapper.m_PlayerActionActionsCallbackInterface.OnMouz;
+                @Mouz.performed -= m_Wrapper.m_PlayerActionActionsCallbackInterface.OnMouz;
+                @Mouz.canceled -= m_Wrapper.m_PlayerActionActionsCallbackInterface.OnMouz;
             }
             m_Wrapper.m_PlayerActionActionsCallbackInterface = instance;
             if (instance != null)
@@ -509,6 +535,9 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                 @OverturnUAD.started += instance.OnOverturnUAD;
                 @OverturnUAD.performed += instance.OnOverturnUAD;
                 @OverturnUAD.canceled += instance.OnOverturnUAD;
+                @Mouz.started += instance.OnMouz;
+                @Mouz.performed += instance.OnMouz;
+                @Mouz.canceled += instance.OnMouz;
             }
         }
     }
@@ -537,5 +566,6 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnOverturn(InputAction.CallbackContext context);
         void OnOverturnUAD(InputAction.CallbackContext context);
+        void OnMouz(InputAction.CallbackContext context);
     }
 }

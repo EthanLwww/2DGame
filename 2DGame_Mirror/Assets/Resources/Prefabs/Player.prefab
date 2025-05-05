@@ -162,7 +162,7 @@ MonoBehaviour:
   groundCheck: {fileID: 0}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2147483647
   jumpSpeed: 0
   jumpMultiplier: 0
   fallMultiplier: 0
