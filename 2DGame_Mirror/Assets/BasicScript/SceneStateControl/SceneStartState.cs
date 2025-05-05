@@ -18,7 +18,7 @@ public class SceneStartState : ISceneState
 
     public override void StateBegin()
     {
-        button = GameObject.FindObjectOfType<Button>();
+        button = GameObject.Find("startgame").GetComponent<Button>();
         button.onClick.AddListener(StartGame);
     }
     public override void StateEnd()

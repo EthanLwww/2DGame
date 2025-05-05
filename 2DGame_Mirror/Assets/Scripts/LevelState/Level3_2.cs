@@ -11,6 +11,8 @@ public class Level3_2 : ISceneState
 {
     private Player_Controller player;
     public Vector3 respawnPos = new(-5.5f, -2.5f, 0);
+    private DirectionManager directionManager;
+    private GameObject canvas;
     public Level3_2(SceneStateControl control) : base(control)
     {
         this.StateName = "Level3_2";
@@ -20,6 +22,11 @@ public class Level3_2 : ISceneState
     {
         player = Object.Instantiate(Resources.Load<GameObject>("Prefabs/Player"), respawnPos, Quaternion.identity).GetComponent<Player_Controller>();
         player.rebirthPos = respawnPos;
+        player.canDoubleJump = true;
+        directionManager = Transform.FindObjectOfType<DirectionManager>();
+        directionManager.canOverUpAndDown = true;
+        canvas = GameObject.Find("Canvas");
+        canvas.SetActive(false);
     }
     public override void StateEnd()
     {
@@ -31,6 +38,7 @@ public class Level3_2 : ISceneState
         {
             // my_control.SetState(new Level4_1(my_control), "Level4_1");
             Debug.Log("Ã»¹Ø¿¨ÁË");
+            canvas.SetActive(true);
         }
     }
 }

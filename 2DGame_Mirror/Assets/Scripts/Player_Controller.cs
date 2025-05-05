@@ -9,6 +9,10 @@ public class Player_Controller : MonoBehaviour
     public Animator animator;
     public static int sceneIndex = 1;
 
+    public AudioSource jumpAudio;
+    public AudioSource moveAudio;
+    public AudioSource deadAudio;
+
     private PlayerInputAction controls;
     private Vector2 move;
 
@@ -49,19 +53,15 @@ public class Player_Controller : MonoBehaviour
     bool canMove = true;
     public Vector3 rebirthPos;
     public bool isGet2Garget = false;
+    public bool canDoubleJump = false;
 
     void Start()
     {
-        
-        
         vecGravity = new Vector2(0, -Physics2D.gravity.y);
         groundCheck = gameObject.transform;
-        moveSpeed = 249f;
-        jumpSpeed = 6f;
-        jumpMultiplier = 4f;
-        fallMultiplier = 0.1f;
-        jumpTime = 0.2f;
+        
         isGet2Garget = false;
+
 
     }
 
@@ -97,13 +97,20 @@ public class Player_Controller : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+        
     }
 
     void Move()
     {
-        rb.velocity = new Vector2(move.x * moveSpeed * Time.deltaTime, rb.velocity.y) ;
+        if (Jump_Check.OnGround == false || move.x == 0)
+        {
+            moveAudio.Stop();
+        }
+        //rb.velocity = new Vector2(move.x * moveSpeed * Time.deltaTime, rb.velocity.y) ;
+        transform.Translate(new Vector2(move.x ,0) * moveSpeed * Time.deltaTime, Space.World);
         if ((facingLeft && move.x < 0) || (!facingLeft && move.x > 0))
         {
+            moveAudio.Play();
             facingLeft = !facingLeft;
             transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
         }
@@ -145,6 +152,7 @@ public class Player_Controller : MonoBehaviour
     {
         if (Jump_Check.OnGround) //第一段跳
         {
+            jumpAudio.Play();
             Jump_Check.OnGround = false;
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
             animator.SetBool("isJumping", true);
@@ -153,8 +161,9 @@ public class Player_Controller : MonoBehaviour
             isDoubleJump = true;
         }
         //检测是否是二段跳便设置跳跃次数极限为2
-        else if (isDoubleJump)
+        else if (isDoubleJump && canDoubleJump)
         {
+            jumpAudio.Play();
             animator.SetBool("isDoubleJumping", true);
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed * 0.75f);
             isJumping = true;
@@ -169,9 +178,9 @@ public class Player_Controller : MonoBehaviour
         isJumping = false;
     }
 
-
     public void Die()
     {
+        deadAudio.Play();
         animator.SetBool("isDead", true);
         canMove = false;
         IEnumeratorSystem.Instance.startCoroutine(DieTimer());
@@ -181,6 +190,7 @@ public class Player_Controller : MonoBehaviour
     {
         yield return new WaitForSeconds(0.33f);
         gameObject.SetActive(false);
+        GameObject.Find("Axis").transform.localScale = new(1, 1, 1);
         yield return new WaitForSeconds(1f);
         animator.SetBool("isDead", false);
         Rebirth();
