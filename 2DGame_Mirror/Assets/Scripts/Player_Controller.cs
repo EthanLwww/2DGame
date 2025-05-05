@@ -1,4 +1,7 @@
+Ôªøusing System;
 using UnityEngine;
+using System.Collections;
+using UnityEngine.InputSystem;
 
 public class Player_Controller : MonoBehaviour
 {
@@ -6,11 +9,31 @@ public class Player_Controller : MonoBehaviour
     public Animator animator;
     public static int sceneIndex = 1;
 
-    /*Ω«…´Ã¯‘æµƒ…Ë÷√*/
-    [SerializeField] float moveSpeed;
-    [SerializeField] float jumpSpeed;
+    private PlayerInputAction controls;
+    private Vector2 move;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();//Ëé∑ÂèñÂΩìÂâçËßíËâ≤Âàö‰Ωì
+        controls = new PlayerInputAction();
+
+    }
+    private void OnEnable()
+    {
+        controls.PlayerAction.Enable();
+    }
+    void OnDisable()
+    {
+        controls.PlayerAction.Disable();
+    }
+
+
+    [Header("Áé©ÂÆ∂ËÆæÁΩÆÂü∫Êú¨Â±ûÊÄßËÆæÁΩÆ")]
+    //ËßíËâ≤Ë∑≥Ë∑ÉÁöÑËÆæÁΩÆ
+    [SerializeField]private float moveSpeed;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundLayer;
+    [SerializeField] float jumpSpeed;
     bool isDoubleJump;
 
     Vector2 vecGravity;
@@ -20,41 +43,59 @@ public class Player_Controller : MonoBehaviour
     float jumpContinue;
     bool isJumping;
 
-    /*Ω«…´◊‘∂Ø◊™œÚµƒ…Ë÷√*/
+    //ËßíËâ≤Ëá™Âä®ËΩ¨ÂêëÁöÑËÆæÁΩÆ
     bool facingLeft = true;
-    float moveDir;
+
+    bool canMove = true;
+    public Vector3 rebirthPos;
+    public bool isGet2Garget = false;
+
 
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();//ªÒµ√µ±«∞Ω«…´∏’ÃÂ
+        
         animator = GetComponent<Animator>();
         vecGravity = new Vector2(0, -Physics2D.gravity.y);
         groundCheck = gameObject.transform;
-        //init
-        moveSpeed = 4f;
-        jumpSpeed = 6f;
+        moveSpeed = 249f;
+        jumpSpeed = 12f;
         jumpMultiplier = 4f;
         fallMultiplier = 0.1f;
         jumpTime = 0.2f;
+        isGet2Garget = false;
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+        controls.PlayerAction.Jump.started += JumpIn;
+        controls.PlayerAction.Jump.canceled += JumpOut;
 
-        moveDir = Input.GetAxis("Horizontal");
-        if (moveDir != 0)
+        if (canMove)
+            move = controls.PlayerAction.Move.ReadValue<Vector2>();
+        else move.x = 0;
+        if (move.x != 0)
             animator.SetBool("isWalking", true);
         else animator.SetBool("isWalking", false);
-        Jump();
 
-        if (Input.GetKeyDown(KeyCode.O))
+
+        if (IsGround() && canMove)
+        {
+            animator.SetBool("isOnGround", true);
+            animator.SetBool("isFalling", false);
+        }
+        else
+        {
+            animator.SetBool("isOnGround", false);
+        }
+        /*if (Input.GetKeyDown(KeyCode.O))
             animator.SetBool("isDead", true);
 
         if (Input.GetKeyDown(KeyCode.P))
-            animator.SetBool("isRebirthing", true);
+            animator.SetBool("isRebirthing", true);*/
     }
 
     private void FixedUpdate()
@@ -62,50 +103,49 @@ public class Player_Controller : MonoBehaviour
         Move();
     }
 
-    void Move()
+    private bool IsGround()
     {
-
-        //Vector2 playVel = new Vector2(moveDir * moveSpeed, rb.velocity.y);
-        //rb.velocity = playVel;
-
-        transform.Translate(new Vector2(moveDir, 0) * moveSpeed * Time.deltaTime, Space.World);
-        if ((facingLeft && moveDir < 0) || (!facingLeft && moveDir > 0))
-        {
-            facingLeft = !facingLeft;
-            transform.localScale = new Vector3(transform.localScale.x * -1, 1, 1);
-        }
+        return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.87f, 2.60f), CapsuleDirection2D.Vertical, 0, groundLayer);
     }
 
-    void Jump()
+    void Move()
     {
-        Debug.Log(IsGround());
-        //ºÏ≤‚Ã¯‘æ
-        if (Input.GetButtonDown("Jump"))
+        rb.velocity = new Vector2(move.x * moveSpeed * Time.deltaTime, rb.velocity.y) ;
+        if ((facingLeft && move.x < 0) || (!facingLeft && move.x > 0))
         {
-            if (IsGround())
-            {
-                rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
-                animator.SetBool("isJumping", true);
-                isJumping = true;
-                jumpContinue = 0;
-                isDoubleJump = true;
-            }
-            //ºÏ≤‚ «∑Ò «∂˛∂ŒÃ¯±„…Ë÷√Ã¯‘æ¥Œ ˝º´œﬁŒ™2
-            else if (isDoubleJump)
-            {
-                animator.SetBool("isDoubleJumping", true);
-                rb.velocity = new Vector2(rb.velocity.x, jumpSpeed * 0.75f);
-                isJumping = true;
-                jumpContinue = 0;
-                isDoubleJump = false;
-            }
+            facingLeft = !facingLeft;
+            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
         }
 
-        if (Input.GetButtonUp("Jump"))
+    }
+
+    private void JumpIn(InputAction.CallbackContext context)
+    {
+        if (IsGround()) //Á¨¨‰∏ÄÊÆµË∑≥
         {
-            isJumping = false;
+            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+            animator.SetBool("isJumping", true);
+            isJumping = true;
+            jumpContinue = 0;
+            isDoubleJump = true;
+        }
+        //Ê£ÄÊµãÊòØÂê¶ÊòØ‰∫åÊÆµË∑≥‰æøËÆæÁΩÆË∑≥Ë∑ÉÊ¨°Êï∞ÊûÅÈôê‰∏∫2
+        else if (isDoubleJump)
+        {
+            animator.SetBool("isDoubleJumping", true);
+            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed * 0.75f);
+            isJumping = true;
+            jumpContinue = 0;
+            isDoubleJump = false;
         }
 
+
+
+    }
+
+    private void JumpOut(InputAction.CallbackContext context)
+    {
+        isJumping = false;
         if (rb.velocity.y > 0 && isJumping)
         {
             jumpContinue += Time.deltaTime;
@@ -121,12 +161,40 @@ public class Player_Controller : MonoBehaviour
             rb.velocity -= vecGravity * fallMultiplier * Time.deltaTime;
             animator.SetBool("isJumping", false);
             animator.SetBool("isDoubleJumping", false);
+            animator.SetBool("isFalling", true);
         }
     }
 
-    //ºÏ≤‚ «∑ÒŒª”⁄µÿ√Ê
-    private bool IsGround()
+    public void Die()
     {
-        return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.87f, 2.60f), CapsuleDirection2D.Vertical, 0, groundLayer);
+        animator.SetBool("isDead", true);
+        canMove = false;
+        IEnumeratorSystem.Instance.startCoroutine(DieTimer());
     }
+
+    IEnumerator DieTimer()
+    {
+        yield return new WaitForSeconds(0.33f);
+        gameObject.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("isDead", false);
+        Rebirth();
+    }
+
+    public void Rebirth()
+    {
+        gameObject.SetActive(true);
+        transform.position = rebirthPos;
+        animator.SetBool("isRebirthing", true);
+        IEnumeratorSystem.Instance.startCoroutine(RebirthTimer());
+    }
+
+    IEnumerator RebirthTimer()
+    {
+        yield return new WaitForSeconds(0.41f);
+        animator.SetBool("isRebirthing", false);
+        canMove = true;
+    }
+
 }
+

@@ -9,20 +9,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class GameLoop : MonoBehaviour
+public class GameLoop : SingletonBase<GameLoop>
 {
     [SerializeField]
     private SceneStateControl sceneStateControl = new SceneStateControl();
-    private void Awake()
+    public override void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        base.Awake();
         UnityEngine.Random.InitState((int)DateTime.Now.Ticks);
-        
     }
 
     private void Start()
     {
-        sceneStateControl.SetState(new SceneStartState(sceneStateControl),"StartScene");
+        sceneStateControl.SetState(new SceneStartState(sceneStateControl));
     }
 
     private void Update()

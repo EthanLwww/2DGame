@@ -6,9 +6,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SceneStartState : ISceneState
 {
+    private Button button;
     public SceneStartState (SceneStateControl control):base(control){
         this.StateName = "SceneStartState";
     }
@@ -16,7 +18,8 @@ public class SceneStartState : ISceneState
 
     public override void StateBegin()
     {
-
+        button = GameObject.FindObjectOfType<Button>();
+        button.onClick.AddListener(StartGame);
     }
     public override void StateEnd()
     {
@@ -25,5 +28,10 @@ public class SceneStartState : ISceneState
     public override void StateUpdate()
     {
 
+    }
+
+    public void StartGame()
+    {
+        my_control.SetState(new Level1_1(my_control), "Level1_1");
     }
 }
