@@ -53,7 +53,7 @@ public class Player_Controller : MonoBehaviour
             animator.SetBool("isWalking", true);
         else animator.SetBool("isWalking", false);
         Jump();
-        if (IsGround()&&canMove)
+        if (IsGround() && canMove)
         {
             animator.SetBool("isOnGround", true);
             animator.SetBool("isFalling", false);
@@ -129,7 +129,7 @@ public class Player_Controller : MonoBehaviour
             rb.velocity += vecGravity * jumpMultiplier * Time.deltaTime;
         }
 
-        if (rb.velocity.y < 0)
+        if (rb.velocity.y <= 0)
         {
             rb.velocity -= vecGravity * fallMultiplier * Time.deltaTime;
             animator.SetBool("isJumping", false);
