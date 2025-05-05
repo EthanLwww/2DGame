@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player_Controller : MonoBehaviour
 {
@@ -52,14 +53,12 @@ public class Player_Controller : MonoBehaviour
 
     void Start()
     {
-        
-        
         vecGravity = new Vector2(0, -Physics2D.gravity.y);
         groundCheck = gameObject.transform;
         moveSpeed = 249f;
         jumpSpeed = 6f;
         jumpMultiplier = 4f;
-        fallMultiplier = 0.1f;
+        fallMultiplier = 0.07f;
         jumpTime = 0.2f;
         isGet2Garget = false;
 

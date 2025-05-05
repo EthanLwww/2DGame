@@ -24,6 +24,8 @@ public class Jump_Check : MonoBehaviour
         if (other.CompareTag("Ground"))
         {
             OnGround = true;
+            Transform parentTransform = transform.root;
+            parentTransform.GetComponent<Rigidbody2D>().velocity = new Vector2(parentTransform.GetComponent<Rigidbody2D>().velocity.x,1);
         }
         else
         {
