@@ -121,15 +121,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  moveSpeed: 0
-  jumpSpeed: 0
+  moveSpeed: 4
+  jumpSpeed: 6
   groundCheck: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  jumpMultiplier: 0
-  fallMultiplier: 0
-  jumpTime: 0
+  jumpMultiplier: 4
+  fallMultiplier: 0.1
+  jumpTime: 0.2
+  rebirthPos: {x: 0, y: 0, z: 0}
+  isGet2Garget: 0
 --- !u!50 &1675536441086849681
 Rigidbody2D:
   serializedVersion: 4
