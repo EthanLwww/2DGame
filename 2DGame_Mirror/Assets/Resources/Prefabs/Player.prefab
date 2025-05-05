@@ -55,7 +55,13 @@ GameObject:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - component: {fileID: 2791077106773666133}
+=======
+  - component: {fileID: 7403366060762337953}
+  - component: {fileID: 2655317211522841609}
+  - component: {fileID: 2614841040121331557}
+>>>>>>> Stashed changes
 =======
   - component: {fileID: 7403366060762337953}
   - component: {fileID: 2655317211522841609}
@@ -438,8 +444,11 @@ MonoBehaviour:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   moveSpeed: 0
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -585,6 +594,9 @@ AudioSource:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -716,6 +728,7 @@ AudioSource:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -726,6 +739,8 @@ AudioSource:
   m_Direction: 0
 --- !u!1 &5390844429914402841
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -1248,8 +1263,13 @@ CapsuleCollider2D:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.4807301, y: 0.080757745}
+=======
+  m_Offset: {x: -0.0000000025830558, y: -0.021668244}
+  m_Size: {x: 0.42000005, y: 0.070336565}
+>>>>>>> Stashed changes
 =======
   m_Offset: {x: -0.0000000025830558, y: -0.021668244}
   m_Size: {x: 0.42000005, y: 0.070336565}
